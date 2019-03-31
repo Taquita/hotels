@@ -1,6 +1,6 @@
 package br.com.cvc.hotels.controllers;
 
-import br.com.cvc.hotels.models.hotel.HotelDTO;
+import br.com.cvc.hotels.models.hotel.HotelReturnDTO;
 import br.com.cvc.hotels.services.HotelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -32,14 +32,14 @@ public class HotelController {
 
     @GetMapping
     @ApiOperation(value = "Get Book with pagination")
-    public List<HotelDTO> getHotelsForPeriod(
+    public List<HotelReturnDTO> getHotelsForPeriod(
             @RequestParam(value = "city") Long city,
-            @RequestParam(value = "checkin") @DateTimeFormat(pattern = "dd/MM/yyyy") Date checkIn,
-            @RequestParam(value = "checkout") @DateTimeFormat(pattern = "dd/MM/yyyy") Date checkOut,
+            @RequestParam(value = "checkin") @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate checkIn,
+            @RequestParam(value = "checkout") @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate checkOut,
             @RequestParam(value = "children", defaultValue = "0") Integer children,
             @RequestParam(value = "adults", defaultValue = "0") Integer adults
     ) {
-        return hotelService.hotelPriceByCity();
+        return hotelService.hotelPriceByCity(city, checkIn, checkOut, children, adults);
     }
 
 

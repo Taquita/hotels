@@ -15,6 +15,5 @@ abstract class HotelCommon {
     private String name;
     private Long cityCode;
     private String cityName;
-    private Set<RoomDTO> rooms;
 
 }

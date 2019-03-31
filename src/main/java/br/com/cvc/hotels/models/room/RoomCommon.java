@@ -14,6 +14,5 @@ abstract class RoomCommon {
 
     private Long roomID;
     private String categoryName;
-    private PriceDTO price;
 
 }

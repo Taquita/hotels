@@ -29,9 +29,19 @@ public class TimeUtilsTest {
         LocalDate init = LocalDate.now();
         LocalDate end = init.plusDays(6);
 
-        int diff = TimeUtils.daysDiff(init, end);
+        long diff = TimeUtils.daysDiff(init, end);
 
         assertEquals(6 , diff);
+    }
+
+    @Test
+    public void shouldCheckIfDiffDateIsCorrectInDaysDiffWithPlusMonth() {
+        LocalDate init = LocalDate.now();
+        LocalDate end = init.plusMonths(1);
+
+        long diff = TimeUtils.daysDiff(init, end);
+
+        assertEquals(30 , diff);
     }
 
 }

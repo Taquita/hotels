@@ -51,7 +51,7 @@ public class HotelServiceImpl implements HotelService {
         PriceMapper.convertMapper(mapper);
         if (checkIn.isAfter(checkOut))
             throw new DateInvalidException("The date of check-in and after the check-out date", HttpStatus.BAD_REQUEST);
-        int diff = TimeUtils.daysDiff(checkIn, checkOut);
+        long diff = TimeUtils.daysDiff(checkIn, checkOut);
         return this.brokerAPI.getHotelDataByCityID(city).stream().map(hotel -> this.mappingToHotelReturn(hotel, adults, children, diff)).collect(Collectors.toList());
     }
 
@@ -71,7 +71,7 @@ public class HotelServiceImpl implements HotelService {
         PriceMapper.convertMapper(mapper);
         if (checkIn.isAfter(checkOut))
             throw new DateInvalidException("The date of check-in and after the check-out date", HttpStatus.BAD_REQUEST);
-        int diff = TimeUtils.daysDiff(checkIn, checkOut);
+        long diff = TimeUtils.daysDiff(checkIn, checkOut);
         return this.brokerAPI.getHotelDataByID(hotelID).stream().map(hotel -> this.mappingToHotelReturn(hotel, adults, children, diff)).collect(Collectors.toList());
     }
 
@@ -84,7 +84,7 @@ public class HotelServiceImpl implements HotelService {
      * @param days - diff days between check-in and check-out
      * @return HotelReturnDTO
      */
-    public HotelReturnDTO mappingToHotelReturn(HotelDTO hotel, Integer adults, Integer children, int days) {
+    public HotelReturnDTO mappingToHotelReturn(HotelDTO hotel, Integer adults, Integer children, long days) {
         HotelReturnDTO hotelR = mapper.map(hotel, HotelReturnDTO.class);
         hotelR.setRooms(hotel.getRooms().stream().map(room -> this.mappingToRoomReturn(room, adults, children, days)).collect(Collectors.toList()));
         return hotelR;
@@ -99,7 +99,7 @@ public class HotelServiceImpl implements HotelService {
      * @param days - diff days between check-in and check-out
      * @return RoomReturnDTO
      */
-    public RoomReturnDTO mappingToRoomReturn(RoomDTO room, Integer adults, Integer children, int days) {
+    public RoomReturnDTO mappingToRoomReturn(RoomDTO room, Integer adults, Integer children, long days) {
         RoomReturnDTO roomR = mapper.map(room, RoomReturnDTO.class);
         roomR.setTotalPrice(adults, children, days);
         return roomR;

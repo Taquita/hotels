@@ -1,5 +1,6 @@
 package br.com.cvc.hotels.utils;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -11,9 +12,8 @@ import java.time.Period;
  */
 public class TimeUtils {
 
-    public static int daysDiff(LocalDate init, LocalDate end) {
-        Period period = Period.between(init, end);
-        return period.getDays();
+    public static long daysDiff(LocalDate init, LocalDate end) {
+        return Duration.between(init.atStartOfDay(), end.atStartOfDay()).toDays();
     }
 
 }

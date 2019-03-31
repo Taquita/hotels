@@ -70,9 +70,9 @@ public class HotelServiceTest {
         LocalDate end = init.plusDays(6);
         List<HotelDTO> hotels = HotelDTOBuilder.manyHotels(3);
         when(api.getHotelDataByCityID(1L)).thenReturn(hotels);
-        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
         serviceSpy.hotelPriceByCity(1L, init, end, 0, 1);
-        verify(serviceSpy, times(3)).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        verify(serviceSpy, times(3)).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
     }
 
     /**
@@ -88,7 +88,7 @@ public class HotelServiceTest {
         LocalDate end = init.plusDays(6);
         List<HotelDTO> hotels = HotelDTOBuilder.manyHotels(3);
         when(api.getHotelDataByCityID(1L)).thenReturn(hotels);
-        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
         serviceSpy.hotelPriceByCity(1L, init, end, 0, 1);
         verify(api, times(1)).getHotelDataByCityID(1L);
     }
@@ -121,9 +121,9 @@ public class HotelServiceTest {
         HotelServiceImpl serviceSpy = spy(service);
         List<RoomDTO> rooms = RoomDTOBuilder.manyRooms(3);
         hotel.setRooms(rooms);
-        doReturn(null).when(serviceSpy).mappingToRoomReturn(any(RoomDTO.class), eq(1), eq(0), eq(2));
-        serviceSpy.mappingToHotelReturn(hotel, 1, 0, 2);
-        verify(serviceSpy, times(3)).mappingToRoomReturn(any(RoomDTO.class), eq(1), eq(0), eq(2));
+        doReturn(null).when(serviceSpy).mappingToRoomReturn(any(RoomDTO.class), eq(1), eq(0), eq(2L));
+        serviceSpy.mappingToHotelReturn(hotel, 1, 0, 2L);
+        verify(serviceSpy, times(3)).mappingToRoomReturn(any(RoomDTO.class), eq(1), eq(0), eq(2L));
     }
 
     /**
@@ -153,9 +153,9 @@ public class HotelServiceTest {
         LocalDate end = init.plusDays(6);
         List<HotelDTO> hotels = HotelDTOBuilder.manyHotels(3);
         when(api.getHotelDataByID(1L)).thenReturn(hotels);
-        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
         serviceSpy.hotelPriceByHotel(1L, init, end, 0, 1);
-        verify(serviceSpy, times(3)).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        verify(serviceSpy, times(3)).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
     }
 
     /**
@@ -171,7 +171,7 @@ public class HotelServiceTest {
         LocalDate end = init.plusDays(6);
         List<HotelDTO> hotels = HotelDTOBuilder.manyHotels(3);
         when(api.getHotelDataByID(1L)).thenReturn(hotels);
-        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyInt());
+        doReturn(null).when(serviceSpy).mappingToHotelReturn(any(HotelDTO.class), eq(1), eq(0), anyLong());
         serviceSpy.hotelPriceByHotel(1L, init, end, 0, 1);
         verify(api, times(1)).getHotelDataByID(1L);
     }

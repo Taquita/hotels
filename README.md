@@ -11,7 +11,7 @@ Sistema de acesso a API `https://cvcbackendhotel.herokuapp.com` para realizaçã
 
 #### Requisitos
 
-- Docker
+- Docker    
 - Docker-Compose
 
 #### Como executar

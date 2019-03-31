@@ -15,7 +15,7 @@ public class RoomReturnDTO extends RoomCommon {
     @Setter
     private PriceReturnDTO priceDetail;
 
-    public void setTotalPrice(Integer adults, Integer children, int days) {
+    public void setTotalPrice(Integer adults, Integer children, long days) {
         Double totalAdults = (this.getPriceDetail().getPricePerDayAdult() * adults) * days;
         Double totalChildren = (this.getPriceDetail().getPricePerDayChild() * children) * days;
         this.totalPrice = totalAdults + totalChildren;

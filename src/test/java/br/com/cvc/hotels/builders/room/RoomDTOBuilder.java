@@ -1,12 +1,18 @@
 package br.com.cvc.hotels.builders.room;
 
 import br.com.cvc.hotels.builders.price.PriceDTOBuilder;
-import br.com.cvc.hotels.models.hotel.HotelDTO;
 import br.com.cvc.hotels.models.room.RoomDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Jonathan Taquita (takita.jonathan@gmail.com)
+ * @since 2019.03.30
+ * @see RoomDTO
+ *
+ * Class Builder for RoomDTO
+ */
 public class RoomDTOBuilder {
 
     private RoomDTO room;

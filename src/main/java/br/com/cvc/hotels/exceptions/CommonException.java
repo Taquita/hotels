@@ -2,42 +2,48 @@ package br.com.cvc.hotels.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-public abstract class CommonException extends RuntimeException {
+/**
+ * @author Jonathan Taquita (takita.jonathan@gmail.com)
+ * @since 2019.03.30
+ *
+ * Class for common properties for exceptions
+ */
+abstract class CommonException extends RuntimeException {
 
     private final HttpStatus code;
     private final String exception;
 
-    public CommonException(String s, String exception) {
+    CommonException(String s, String exception) {
         super(s);
         this.exception = exception;
         this.code = HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
-    public CommonException(String s, String exception, HttpStatus code) {
+    CommonException(String s, String exception, HttpStatus code) {
         super(s);
         this.exception = exception;
         this.code = code;
     }
 
-    public CommonException(String s, String exception, HttpStatus code, Throwable throwable) {
+    CommonException(String s, String exception, HttpStatus code, Throwable throwable) {
         super(s, throwable);
         this.code = code;
         this.exception = exception;
     }
 
-    public HttpStatus getCode() {
+    HttpStatus getCode() {
         return code;
     }
 
-    public int getStatus() {
+    int getStatus() {
         return code.value();
     }
 
-    public String getError() {
+    String getError() {
         return code.name();
     }
 
-    public String getException() {
+    String getException() {
         return exception;
     }
 }

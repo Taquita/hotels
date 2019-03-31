@@ -9,9 +9,21 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
+/**
+ * @author Jonathan Taquita (takita.jonathan@gmail.com)
+ * @since 2019.03.30
+ * @see TimeUtils
+ *
+ * Class test for TimeUtils
+ */
 @RunWith(SpringRunner.class)
 public class TimeUtilsTest {
 
+    /**
+     * @since 2019.03.30
+     *
+     * Method for testing return the daysDiff method
+     */
     @Test
     public void shouldCheckIfDiffDateIsCorrectInDaysDiff() {
         LocalDate init = LocalDate.now();

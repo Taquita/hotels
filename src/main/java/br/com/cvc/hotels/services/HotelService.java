@@ -9,4 +9,6 @@ public interface HotelService {
 
     public List<HotelReturnDTO> hotelPriceByCity(Long city, LocalDate checkIn, LocalDate checkOut, Integer children, Integer adults);
 
+    public List<HotelReturnDTO> hotelPriceByHotel(Long hotel, LocalDate checkIn, LocalDate checkOut, Integer children, Integer adults);
+
 }

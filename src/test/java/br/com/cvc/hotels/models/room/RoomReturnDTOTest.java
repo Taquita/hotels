@@ -1,16 +1,27 @@
 package br.com.cvc.hotels.models.room;
 
 import br.com.cvc.hotels.builders.price.PriceReturnDTOBuilder;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+/**
+ * @author Jonathan Taquita (takita.jonathan@gmail.com)
+ * @since 2019.03.30
+ * @see RoomReturnDTO
+ *
+ * Class for testing setters in RoomReturnDTO
+ */
 @RunWith(SpringRunner.class)
 public class RoomReturnDTOTest {
 
+    /**
+     * @since 2019.03.30
+     *
+     * Test for check calc in setTotalPrice
+     */
     @Test
     public void shouldCheckIfCalcTotalIsCorrect() {
         RoomReturnDTO room = new RoomReturnDTO();
@@ -19,6 +30,11 @@ public class RoomReturnDTOTest {
         assertEquals(571.44, room.getTotalPrice(), 0.01);
     }
 
+    /**
+     * @since 2019.03.30
+     *
+     * Test for check calc in setTotalPrice returned zero with zero children and adults
+     */
     @Test
     public void shouldCheckIfCalcReturnZeroInCaseAdultsNullOrChildrenNull() {
         RoomReturnDTO room = new RoomReturnDTO();
@@ -27,6 +43,11 @@ public class RoomReturnDTOTest {
         assertEquals(0, room.getTotalPrice(), 0.01);
     }
 
+    /**
+     * @since 2019.03.30
+     *
+     * Test for check calc in setTotalPrice returned zero with zero days
+     */
     @Test
     public void shouldCheckIfCalcReturnZeroInCaseDateZero() {
         RoomReturnDTO room = new RoomReturnDTO();

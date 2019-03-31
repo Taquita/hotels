@@ -19,4 +19,7 @@ public interface BrokerAPI {
     @GetMapping("/hotels/avail/{id}")
     List<HotelDTO> getHotelDataByCityID(@PathVariable("id") Long id);
 
+    @GetMapping("/hotels/{id}")
+    List<HotelDTO> getHotelDataByID(@PathVariable("id") Long id);
+
 }

@@ -5,6 +5,13 @@ import br.com.cvc.hotels.models.hotel.HotelDTO;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Jonathan Taquita (takita.jonathan@gmail.com)
+ * @since 2019.03.30
+ * @see HotelDTO
+ *
+ * Class Builder for HotelDTO
+ */
 public class HotelDTOBuilder {
 
     private HotelDTO hotel;

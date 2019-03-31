@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.Cacheable;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -41,7 +42,7 @@ public class HotelController {
      * @return List<HotelReturnDTO>
      */
     @GetMapping(value = "/city")
-    @ApiOperation(value = "Get Book with pagination")
+    @ApiOperation(value = "Get Hotel List by City ID")
     public List<HotelReturnDTO> getHotelsForPeriod(
             @RequestParam(value = "city") Long city,
             @RequestParam(value = "checkin") @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate checkIn,
@@ -63,7 +64,7 @@ public class HotelController {
      * @return List<HotelReturnDTO>
      */
     @GetMapping
-    @ApiOperation(value = "Get Book with pagination")
+    @ApiOperation(value = "Get Hotel List by Hotel ID")
     public List<HotelReturnDTO> getHotelsForPeriodById(
             @RequestParam(value = "hotel") Long hotel,
             @RequestParam(value = "checkin") @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate checkIn,

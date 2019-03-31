@@ -11,8 +11,8 @@ services:
       - 8080:8080
     command: mvn spring-boot:run
 
-#  redis:
-#    image: redis:5.0.4-alpine
-#    container_name: redis
-#    ports:
-#      - 6379:6379
+  redis:
+    image: redis:5.0.4-alpine
+    container_name: redis
+    ports:
+      - 6379:6379

@@ -1,6 +1,7 @@
 package br.com.cvc.hotels.apis;
 
 import br.com.cvc.hotels.models.hotel.HotelDTO;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +17,12 @@ import java.util.List;
 @FeignClient(url = "https://cvcbackendhotel.herokuapp.com/", name = "hotels")
 public interface BrokerAPI {
 
+    @Cacheable(value = "hotelsByCity")
     @GetMapping("/hotels/avail/{id}")
     List<HotelDTO> getHotelDataByCityID(@PathVariable("id") Long id);
+
+    @Cacheable(value = "hotelsById")
+    @GetMapping("/hotels/{id}")
+    List<HotelDTO> getHotelDataByID(@PathVariable("id") Long id);
 
 }

@@ -9,11 +9,11 @@ Sistema de acesso a API `https://cvcbackendhotel.herokuapp.com` para realizaçã
 - Spring Boot
 - Redis
 
-#### Observações
+#### Outras informações
 
-Devido a API na qual estamos fazendo as solicitaçoes pertencer ao Heroku
-`https://cvcbackendhotel.herokuapp.com`, optei por ultilizar o Redis para realizar
-o cache das requisiçoes da API.
+Na aplicação acima foi utilizado um banco de dados Redis para fins de cache de 
+informação, uma vez que pode-se assumir que o serviço de hotéis pode 
+estar indisponível.
 
 #### Requisitos
 

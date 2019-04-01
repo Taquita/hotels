@@ -9,6 +9,12 @@ Sistema de acesso a API `https://cvcbackendhotel.herokuapp.com` para realizaçã
 - Spring Boot
 - Redis
 
+#### Outras informações
+
+Na aplicação acima foi utilizado um banco de dados Redis para fins de cache de 
+informação, uma vez que pode-se assumir que o serviço de hotéis pode 
+estar indisponível.
+
 #### Requisitos
 
 - Docker    
